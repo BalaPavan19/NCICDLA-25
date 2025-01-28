@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KITS-CAI NCICDLA-25</title>
+    <link href="images/conflogo.png" rel="icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .announcement-bar {
+            background: #1d1135;
+            color: var(--text-light);
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .header {
+            background: url("images/back.jpg");
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .nav-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            /background: rgba(255, 255, 255, 0.95);/
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-section .nav-link {
+            color: #f9f5fc !important;
+            font-weight: 500;
+            padding: 10px 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-section .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-section .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-section .nav-link:hover {
+            color: #f5e107 !important;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .speaker-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .speaker-card img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .speaker-card h4 {
+            color: var(--primary-color);
+            margin: 15px 0 10px;
+            font-weight: 600;
+        }
+
+        .topics-list {
+            padding-left: 0;
+        }
+
+        .topics-list li {
+            margin: 15px 0;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .topics-list li:before {
+            content: "→";
+            margin-right: 15px;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .topics-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-register {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-register:hover {
+            background: transparent;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 60px 0 30px;
+        }
+
+        footer h4 {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+
+        footer a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding-left: 5px;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .header-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin: 20px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .nav-section .nav-link {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+       
+      .topics-section {
+    background-color: #f0f8ff;
+    padding: 80px 0;
+}
+
+.topics-row {
+    margin-bottom: 30px;
+}
+
+.topics-row:last-child {
+    margin-bottom: 0;
+}
+
+.topic-item {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80px;
+}
+
+.topic-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #3498db;
+    color: white;
+}
+
+.topic-item h5 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+
+.main-program {
+    background-color: #faf3e0;  /* Light gold background */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.main-program h3 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.main-program-hr {
+    width: 80px;
+    height: 3px;
+    background: #3498db;
+    border: none;
+    margin: 20px auto;
+}
+
+.main-program-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-program article {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.main-program article:hover {
+    transform: translateY(-5px);
+}
+
+.main-program h4 {
+    color: #3498db;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.main-program p {
+    color: #2c3e50;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.main-program-link {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.main-program-link:hover {
+    background: #2980b9;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .main-program-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .main-program h3 {
+        font-size: 2rem;
+    }
+}
+ .organizers-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+    }
+
+    .organizers-title {
+        text-align: center;
+        margin-bottom: 50px;
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .organizers-title:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: #3498db;
+    }
+
+    .organizer-category {
+        margin-bottom: 40px;
+    }
+
+    .category-title {
+        text-align: center;
+        color: #34495e;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .organizer-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .organizer-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 250px;
+        transition: transform 0.3s ease;
+    }
+
+    .organizer-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .organizer-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        object-fit: cover;
+        border: 5px solid #f8f9fa;
+    }
+
+    .organizer-name {
+        color: #2c3e50;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .organizer-title {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .organizer-position {
+        color: #95a5a6;
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+        .organizer-cards {
+            gap: 15px;
+        }
+
+        .organizer-card {
+            width: calc(50% - 15px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .organizer-card {
+            width: 100%;
+        }
+    }
+
+
+
+.supporting-team {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.team-list li {
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.team-list li:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .team-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="announcement-bar">
+        <div class="container">
+            <marquee behavior="scroll" direction="left">PAPER SUBMISSION LINK IS NOW OPEN</marquee>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="nav-section">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand" href="#">
+                         <img src="images/logo.png" alt="Logo" style="width: 55px; height: auto;">
+                       
+                    </a>
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item"><a class="nav-link" href="#about">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oh/paper.html">Paper Submission</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oh/program.html">Program</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Organizers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container header-content">
+            <h1 class="animated fadeInDown">Department of CSE - Artificial Intelligence</h1>
+            <div class="header-subtitle">Proudly Organizes</div>
+            <h1 class="mb-4">National Conference on</h1>
+            <h1 id = 'mainhedding' class="animated fadeInUp">Innovative Challenges in  Deep Learning and its Applications</h1>
+            <h2 class="mb-4">NCICDLA-25</h2>
+            <div class="date-badge">
+                <h2 class="mb-0">March 28<sup>th</sup> & 29<sup>th</sup>  2025</h2>
+            </div>
+            <br>
+            <a href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FNCICDLA2025" class="btn btn-register">Register Now</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About NCICDLA'25</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="p-4">
+                        <h3 class="mb-4">Overview</h3>
+                        <p>" National Conference on Innovative Challenges in  Deep Learning and its applications " revolves  systems, machines and devices that possess a certain degree of intelligence with the capacity to gather and analyse data and offer around diverse Domains.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4">
+                        <h3 class="mb-4">Our Goal</h3>
+                        <p>The NationalConference on Innovative Challenges in  Deep Learning and its applications (NCICDLA-25) aims to bring together researchers in related fields to explore and discuss various aspects of intelligent systems and Deep Learning applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Program-->
+<section class="main-program" id="papersubmission">
+    <div class="container">
+        <h3>Highlights of the Conference</h3>
+        <hr class="main-program-hr">
+        <div class="main-program-container">
+            <article>
+                <h4>Speech</h4>
+                <p>Keynote Speech/Session Chairs by professors from distinguished university</p>
+            </article>
+            
+            <article>
+                <h4>Selection</h4>
+                <p>Selected papers will be published in the proceedings with ISBN number</p>
+            </article>
+            
+            <article>
+                <h4>Papers Publication</h4>
+                <p>Extended papers will be recommended for publication in leading SCOPUS indexed journal</p>
+            </article>
+            
+            <article>
+                <h4>Certification</h4>
+                <p>Participation certificate will be given to the authors</p>
+            </article>
+            
+            <article>
+                <h4>Awards</h4>
+                <p>Best Research paper will be awarded</p>
+            </article>
+        </div>
+        <!--<a href="/papers" class="main-program-link" target="_blank">Papers Submission Guidelines</a>-->
+        <!--<a href="/papers" class= "#team">Papers Submission Guidelines</a>-->
+    </div>
+</section>
+
+
+    <!-- Important Dates & Registration -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Conference Details</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="mb-4">Important Dates</h3>
+                    <ul class="topics-list">
+                        <li>Last Date for Paper Submission - 03/02/2025</li>
+                        <li>Notification for Acceptance - 22/02/25</li>
+                        <li>Camera Ready Paper - 15/03/25</li>
+                        <li>Conference Dates - 28/03/25 to 29/03/25</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mb-4">Registration Fees</h3>
+                    <ul class="topics-list">
+                        <li>Students and Research Scholars - ₹1500/-</li>
+                        <li>Faculty and Academic - ₹2500/-</li>
+                        <li>Industry Persons - ₹3500/-</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="section">
+        <div class="container">
+            <h2 class="section-title">Distinguished Speakers</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/km.png" alt="Speaker 1">
+                        <h4>Dr.Krishna Mohan</h4>
+                        <p>Director<br>School of Management Studies, JNTU-Kakinada, Andhra Pradesh</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/nk.jpg" alt="Speaker 1">
+                        <h4>Dr.Nagendra Kumar</h4>
+                        <p>Professor<br>University of Hyderabad, Telangana&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/vs.jpeg" alt="Speaker 1">
+                        <h4>Dr. Vandana Sharma</h4>
+                        <p>Assoc. Professor<br>Christ University,SMIEEE, ACM Member.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/ammulu.jpg" alt="Speaker 1">
+                        <h4>Prof.K.Ammulu</h4>
+                        <p>Professor & Head<br>Dravidian University, Kuppam&nbsp&nbsp&nbsp&nbsp.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/re.jpg" alt="Speaker 1">
+                        <h4>Dr. Reeja S R</h4>
+                        <p>Professor & Head<br>Dept of AI & ML, School of Computer Science and Engineering (SCOPE).VIT-AP</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/ramesh.jpg" alt="Speaker 1">
+                        <h4>Prof.R. Ramesh</h4>
+                        <p>Prof.& Head<br>Department of CSE, KKR & KSR Institute of Technology and Sciences.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/ganesh.png" alt="Speaker 1">
+                        <h4>Dr. Ganesh Reddy Karri</h4>
+                        <p>Assoc. Professor<br>School of Computer Science and Engineering(SCOPE), VIT-AP.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/hemanth.jpg" alt="Speaker 1">
+                        <h4>Dr. Hemant Reddy</h4>
+                        <p>Professor<br>School of Computer Science and Engineering(SCOPE), VIT-AP.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/ashu.jpg" alt="Speaker 1">
+                        <h4>Dr.Ashu Abdul</h4>
+                        <p>Professor<br>Department of Computer Science and Engineering, SRM-University</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/guru.jpg" alt="Speaker 1">
+                        <h4>Dr.Guru Kesava Das</h4>
+                        <p>Prof.& Head<br>Department of CSE, KITS-Akshar Institute of Technology and Sciences.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/bb.jpg" alt="Speaker 1">
+                        <h4>Dr.Bullibabu</h4>
+                        <p>Prof.& Head<br>Department of CSE-AI, KITS-Akshar Institute of Technology and Sciences.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/bhanu.jpg" alt="Speaker 1">
+                        <h4>Dr.B.Bhanu Prakash</h4>
+                        <p>Prof.& Head<br>Department of DS, KKR & KSR Institute of Technology and Sciences.</p>
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <div class="speaker-card">
+                        <img src="images/sai.png" alt="Speaker 1">
+                        <h4>Dr.Srinivasa Sesha Sai</h4>
+                        <p>Prof.& Head<br>Department of IT, KKR & KSR Institute of Technology and Sciences.</p>
+                    </div>
+                </div>
+
+                 
+                <!-- More speakers... -->
+            </div>
+        </div>
+    </section>
+   
+<!-- Topics of Interest Section -->
+<section class="topics-section">
+    <div class="container">
+        <h2 class="section-title">Topics of Interest</h2>
+        
+        <!-- Row 1 -->
+        <div class="row topics-row">
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Deep Learning</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Expert Systems</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Natural Language Processing</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Artificial Intelligence</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Soft Computing Techniques</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Data Mining</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row topics-row">
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Machine Learning Algorithms</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Optimization Techniques</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Internet of Things</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Quantum Computing</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Cryptography & Network Security</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Big Data Analytics</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row topics-row">
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Wireless Intelligent Networking</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Wireless Sensor Networks</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Mobile Computing</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Edge Computing</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Agent Based Computing</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="topic-item">
+                    <h5>Cloud Computing</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<section id="team" class="organizers-section">
+    <div class="container">
+        <h2 class="organizers-title">Organizing Committee</h2>
+
+        <!-- Chief Patrons -->
+        <div class="organizer-category">
+            <h3 class="category-title">Chief Patrons</h3>
+            <div class="organizer-cards">
+                <div class="organizer-card">
+                    <img src="images/chairman.jpg" alt="Chairman" class="organizer-image">
+                    <h4 class="organizer-name">Sri K. Subba Rao</h4>
+                    <div class="organizer-title">Chairman</div>
+                    <div class="organizer-position">KITS</div>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/secretary.jpg" alt="Secretary" class="organizer-image">
+                    <h4 class="organizer-name">Sri K. Sekhar</h4>
+                    <div class="organizer-title">Secretary</div>
+                    <div class="organizer-position">KITS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patrons -->
+        <div class="organizer-category">
+            <h3 class="category-title">Patrons</h3>
+            <div class="organizer-cards">
+                <div class="organizer-card">
+                    <img src="images/principal.jpg" alt="Principal" class="organizer-image">
+                    <h4 class="organizer-name">Dr. P. Babu</h4>
+                    <div class="organizer-title">Principal</div>
+                    <div class="organizer-position">KITS</div>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/director.jpg" alt="Director" class="organizer-image">
+                    <h4 class="organizer-name">Dr. K. Haribabu</h4>
+                    <div class="organizer-title">Director - Academics</div>
+                    <div class="organizer-position">KITS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conference Chair & Convener -->
+        <div class="organizer-category">
+            <h3 class="category-title">Conference  Chair</h3>
+            <div class="organizer-cards">
+                <div class="organizer-card">
+                    <img src="images/chair.jpg" alt="Conference Chair" class="organizer-image">
+                    <h4 class="organizer-name">Dr. G. Murali</h4>
+                    <div class="organizer-title">Conference Chair</div>
+                    <div class="organizer-position">Professor & Head of the Department-CAI</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Conference Chair & Convener -->
+        <div class="organizer-category">
+            <h3 class="category-title">Convener</h3>
+            <div class="organizer-cards">      
+       <div class="organizer-card">
+                    <img src="images/convener.png" alt="Convener" class="organizer-image">
+                    <h4 class="organizer-name">Dr. S. Radhakrishnan</h4>
+                    <div class="organizer-title">Convener</div>
+                    <div class="organizer-position">Professor, CAI</div>
+                </div>
+</div>
+        </div>
+
+
+        <!-- Co-ordinators -->
+        <div class="organizer-category">
+            <h3 class="category-title">Co-ordinators</h3>
+            <div class="organizer-cards">
+                <div class="organizer-card">
+                    <img src="images/ng.jpg" alt="Co-ordinator" class="organizer-image">
+                    <h4 class="organizer-name">Dr. S. Nagendram</h4>
+                    <div class="organizer-position">Associate Professor, CAI</div>
+                </div>
+                <div class="organizer-card">
+                    <img src="images/hr.jpg" alt="Co-ordinator" class="organizer-image">
+                    <h4 class="organizer-name">Dr. D. Hari Krishna</h4>
+                    <div class="organizer-position">Associate Professor, CAI</div>
+                </div>
+            </div>
+        </div>
+
+ 
+ 
+ <!-- Supporting Team -->
+<div class="organizer-category">
+    <h3 class="category-title">Technical Team</h3>
+    <div class="supporting-team">
+        <ul class="team-list">
+            <li>Mr. John Saida Mohammad Asst.Prof – CAI</li>
+            <li>Ms. Radhika Kuragantla&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. Vijay Sree Dhulipalla&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. B.Sravanthi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. K.Archana&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Ms. N. Vijayalakshmi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. A. Sai Pavani&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. K.Bhanu Sri&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. E.Padmavathi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. P.Bhargavi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mrs. Ch. Krishnaveni&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Ms. O.Vasavi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mr. K Nagendra Prasad&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+            <li>Mr. LakshmiNarayana &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Asst.Prof – CAI</li>
+        </ul>
+    </div>
+</div>
+
+
+    
+</section>
+
+<section id="location" class="section location">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h1 class="section-title">Venue</h1>
+                    <address>
+                        <p style="font-size: 20px;">
+                            Department of CSE&nbsp;-&nbsp;Artificial&nbsp;Intelligence, Old Block, KKR&nbsp;&&nbsp;KSR Institute of Technology and Sciences, Vinjanampadu, Guntur, 522017
+                        </p>
+                    </address>
+                </div>
+                <div class="col-sm-9">
+                            <iframe src="https://maps.google.com/maps?q=KITS%20vinjanamapdu&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Contact Us</h4>
+                    <p>
+                        Department of CSE - Artificial Intelligence,<br>
+                        KKR & KSR Institute of Technology and Sciences<br>
+                        <strong>Phone:</strong> +91 944 274 0749<br>
+                        <strong>Email:</strong> ncicdla-25@kitsguntur.ac.in
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="oh/program.html">Program</a></li>
+                        <li><a href="#speakers">Speakers</a></li>
+                        <li><a href="#team">Team</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4>About NCICDLA'25</h4>
+                    <p>The National Conference on Innovative Challenges in  Deep Learning and its applications aims to bring together researchers to explore various aspects of Deep Learning and Intelligent Systems applications.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="NCICDLA-Assist"
+  agent-id="9192b35a-318e-436c-8bcb-ce853e9b4769"
+  language-code="en"
+></df-messenger>
+</body>
+</html>
